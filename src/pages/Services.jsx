@@ -78,35 +78,45 @@ const Services = memo(() => {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className={`relative py-24 md:py-32 bg-gradient-to-br from-teal-600 to-teal-800 text-white transition-all duration-1000 ${
+        className={`relative h-[60vh] md:h-[70vh] flex items-end overflow-hidden transition-all duration-1000 ${
           heroVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">Our Services</h1>
-          <p className="text-lg md:text-xl lg:text-2xl max-w-2xl">Comprehensive real estate solutions tailored to your needs</p>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80)'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+        </div>
+        <div className="relative z-10 w-full pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4">Our Services</h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white max-w-3xl">Comprehensive real estate solutions tailored to your needs</p>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section 
         ref={servicesRef}
-        className={`py-16 md:py-20 bg-white transition-all duration-1000 ${
+        className={`py-20 md:py-28 bg-white transition-all duration-1000 ${
           servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {SERVICES_DATA.map((service, index) => (
               <div 
                 key={service.title}
-                className="bg-gray-50 p-6 md:p-8 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="bg-gray-50 p-8 md:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <div className="text-teal-600 mb-4">
+                <div className="text-indigo-600 mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">{service.title}</h3>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">{service.description}</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                <p className="text-lg text-gray-700 leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
@@ -116,23 +126,23 @@ const Services = memo(() => {
       {/* Why Choose Us Section */}
       <section 
         ref={statsRef}
-        className={`py-16 md:py-20 bg-gray-50 transition-all duration-1000 ${
+        className={`py-20 md:py-28 bg-gray-50 transition-all duration-1000 ${
           statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Why Choose Signature Globals?</h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16 md:mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">Why Choose Signature Globals?</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               We are committed to providing exceptional service and value to our clients
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {STATS_DATA.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-teal-600 mb-2">{stat.value}</div>
-                <div className="text-sm md:text-base lg:text-lg text-gray-700">{stat.label}</div>
+                <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-indigo-600 to-slate-700 bg-clip-text text-transparent mb-3">{stat.value}</div>
+                <div className="text-lg md:text-xl text-gray-700 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -142,16 +152,16 @@ const Services = memo(() => {
       {/* CTA Section */}
       <section 
         ref={ctaRef}
-        className={`py-16 md:py-20 bg-teal-600 text-white transition-all duration-1000 ${
+        className={`py-16 md:py-24 lg:py-28 text-white transition-all duration-1000 animate-gradient-bg ${
           ctaVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Ready to Get Started?</h2>
-          <p className="text-lg md:text-xl mb-6 md:mb-8">Contact us today to learn more about our services</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+          <p className="text-xl md:text-2xl mb-10">Contact us today to learn more about our services</p>
           <Link
             to="/contact"
-            className="inline-block px-6 md:px-8 py-3 md:py-4 bg-white text-teal-600 font-semibold rounded-full hover:bg-gray-100 transition-all hover:scale-105"
+            className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-lg text-base md:text-lg"
           >
             Get in Touch
           </Link>

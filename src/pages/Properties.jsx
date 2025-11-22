@@ -93,17 +93,27 @@ const Properties = memo(() => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-teal-600 to-teal-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">Properties</h1>
-          <p className="text-lg md:text-xl lg:text-2xl max-w-2xl">Discover our premium residential and commercial projects</p>
+      <section className="relative h-[60vh] md:h-[70vh] flex items-end overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80)'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+        </div>
+        <div className="relative z-10 w-full pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4">Properties</h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white max-w-3xl">Discover our premium residential and commercial projects</p>
+          </div>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b sticky top-20 z-40">
+      <section className="py-8 md:py-10 bg-white border-b sticky top-20 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             {[
               { value: 'all', label: 'All Properties' },
               { value: 'residential', label: 'Residential' },
@@ -112,10 +122,10 @@ const Properties = memo(() => {
               <button
                 key={filterOption.value}
                 onClick={() => setFilter(filterOption.value)}
-                className={`px-6 py-2 rounded-full font-semibold transition-colors ${
+                className={`px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold text-sm md:text-base transition-all ${
                   filter === filterOption.value
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-gradient-to-r from-indigo-600 to-slate-700 text-white shadow-lg scale-105'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
                 }`}
               >
                 {filterOption.label}
@@ -128,52 +138,52 @@ const Properties = memo(() => {
       {/* Properties Grid */}
       <section 
         ref={propertiesRef}
-        className={`py-16 md:py-20 bg-gray-50 transition-all duration-1000 ${
+        className={`py-20 md:py-28 bg-gray-50 transition-all duration-1000 ${
           propertiesVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {filteredProperties.map((property) => (
               <div 
                 key={property.id} 
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-72 overflow-hidden">
                   <img 
                     src={property.image} 
                     alt={property.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                     width="600"
                     height="400"
                   />
                   {property.status === 'new' && (
-                    <div className="absolute top-4 right-4 bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold shadow-lg">
                       New Launch
                     </div>
                   )}
                   {property.status === 'upcoming' && (
-                    <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-gradient-to-r from-indigo-600 to-slate-700 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold shadow-lg">
                       Coming Soon
                     </div>
                   )}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{property.name}</h3>
-                  <p className="text-gray-600 mb-4 flex items-center">
-                    <LocationIcon className="w-5 h-5 mr-2 text-teal-600" />
+                <div className="p-5 md:p-6 lg:p-8">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 mb-2 md:mb-3">{property.name}</h3>
+                  <p className="text-slate-600 mb-3 md:mb-4 flex items-center text-sm md:text-base lg:text-lg">
+                    <LocationIcon className="w-4 h-4 md:w-5 md:h-5 mr-2 text-indigo-600 flex-shrink-0" />
                     {property.location}
                   </p>
-                  <div className="space-y-2 mb-4">
-                    <p className="text-gray-700 font-medium">{property.type}</p>
-                    <p className="text-gray-600">{property.bedrooms}</p>
-                    <p className="text-gray-600">{property.area}</p>
+                  <div className="space-y-1 md:space-y-2 mb-4 md:mb-6">
+                    <p className="text-slate-700 font-medium text-sm md:text-base">{property.type}</p>
+                    <p className="text-slate-600 text-sm md:text-base">{property.bedrooms}</p>
+                    <p className="text-slate-600 text-sm md:text-base">{property.area}</p>
                   </div>
-                  <p className="text-xl md:text-2xl font-bold text-teal-600 mb-4">{property.price}</p>
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-slate-700 bg-clip-text text-transparent mb-4 md:mb-6">{property.price}</p>
                   <Link 
                     to="/contact"
-                    className="inline-block w-full text-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all hover:scale-105"
+                    className="inline-block w-full text-center px-4 py-2.5 md:px-6 md:py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all hover:scale-105 text-sm md:text-base"
                   >
                     Enquire Now
                   </Link>
@@ -185,13 +195,13 @@ const Properties = memo(() => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-teal-600 text-white">
+      <section className="py-16 md:py-24 lg:py-28 text-white animate-gradient-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">Can't Find What You're Looking For?</h2>
-          <p className="text-xl mb-8">Our team is here to help you find your perfect property</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Can't Find What You're Looking For?</h2>
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 md:mb-10">Our team is here to help you find your perfect property</p>
           <Link 
             to="/contact"
-            className="inline-block px-6 md:px-8 py-3 md:py-4 bg-white text-teal-600 font-semibold rounded-full hover:bg-gray-100 transition-all hover:scale-105"
+            className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white text-indigo-600 font-semibold rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-lg text-base md:text-lg"
           >
             Contact Us
           </Link>

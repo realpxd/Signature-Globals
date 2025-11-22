@@ -58,27 +58,37 @@ const Team = memo(() => {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className={`relative py-24 md:py-32 bg-gradient-to-br from-teal-600 to-teal-800 text-white transition-all duration-1000 ${
+        className={`relative h-[60vh] md:h-[70vh] flex items-end overflow-hidden transition-all duration-1000 ${
           heroVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6">Meet Our Team</h1>
-          <p className="text-lg md:text-xl lg:text-2xl max-w-2xl">
-            A diverse group of professionals dedicated to making your real estate dreams a reality
-          </p>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80)'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
+        </div>
+        <div className="relative z-10 w-full pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4">Meet Our Team</h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white max-w-3xl">
+              A diverse group of professionals dedicated to making your real estate dreams a reality
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Team Introduction */}
       <section 
         ref={introRef}
-        className={`py-10 md:py-12 bg-white transition-all duration-1000 ${
+        className={`py-12 md:py-16 bg-white transition-all duration-1000 ${
           introVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-base md:text-lg text-gray-700 text-center max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
             The Signature Globals team is a diverse group of professionals dedicated to making your real estate dreams a reality. Each member brings a unique perspective and a shared passion for client satisfaction.
           </p>
         </div>
@@ -87,32 +97,33 @@ const Team = memo(() => {
       {/* Team Grid */}
       <section 
         ref={teamRef}
-        className={`py-16 md:py-20 bg-gray-50 transition-all duration-1000 ${
+        className={`py-20 md:py-28 bg-gray-50 transition-all duration-1000 ${
           teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {TEAM_MEMBERS.map((member) => (
               <div 
                 key={member.name}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <div className="relative h-64 md:h-80 overflow-hidden">
+                <div className="relative h-80 overflow-hidden">
                   <img 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                     width="400"
                     height="400"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-teal-600 font-semibold mb-2">{member.role}</p>
-                  <p className="text-gray-600 text-sm mb-3 md:mb-4">{member.experience} experience</p>
-                  <p className="text-sm md:text-base text-gray-700">{member.description}</p>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <p className="text-indigo-600 font-semibold text-base md:text-lg mb-2">{member.role}</p>
+                  <p className="text-gray-600 mb-4">{member.experience} experience</p>
+                  <p className="text-gray-700 leading-relaxed">{member.description}</p>
                 </div>
               </div>
             ))}
@@ -123,18 +134,18 @@ const Team = memo(() => {
       {/* Join Our Team Section */}
       <section 
         ref={ctaRef}
-        className={`py-16 md:py-20 bg-white transition-all duration-1000 ${
+        className={`py-20 md:py-28 bg-white transition-all duration-1000 ${
           ctaVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Join Our Team</h2>
-          <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Join Our Team</h2>
+          <p className="text-xl md:text-2xl text-gray-600 mb-10">
             We're always looking for talented individuals who share our passion for real estate excellence
           </p>
           <a
             href="mailto:info@projectssignatureglobal.in?subject=Career Opportunity"
-            className="inline-block px-6 md:px-8 py-3 md:py-4 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-700 transition-all hover:scale-105"
+            className="inline-block px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-indigo-600 to-slate-700 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-slate-800 transition-all hover:scale-105 shadow-lg text-base md:text-lg"
           >
             View Open Positions
           </a>

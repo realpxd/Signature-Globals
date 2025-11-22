@@ -14,7 +14,7 @@ const NotFound = memo(() => {
           {/* Icon */}
           <div className="mb-8 flex justify-center">
             <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
-              <svg className="w-16 h-16 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-14 h-14 md:w-16 md:h-16 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -32,13 +32,13 @@ const NotFound = memo(() => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/"
-              className="px-8 py-3 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-700 transition-all hover:scale-105 shadow-lg"
+              className="px-6 py-2.5 md:px-8 md:py-3 bg-gradient-to-r from-indigo-600 to-slate-700 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-slate-800 transition-all hover:scale-105 shadow-lg text-sm md:text-base"
             >
               Go Home
             </Link>
             <Link
               to="/properties"
-              className="px-8 py-3 bg-white text-teal-600 font-semibold rounded-full border-2 border-teal-600 hover:bg-teal-50 transition-all hover:scale-105"
+              className="px-6 py-2.5 md:px-8 md:py-3 bg-white text-indigo-600 font-semibold rounded-full border-2 border-indigo-600 hover:bg-indigo-50 transition-all hover:scale-105 text-sm md:text-base"
             >
               Browse Properties
             </Link>
@@ -49,7 +49,7 @@ const NotFound = memo(() => {
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="w-2 h-2 bg-teal-600 rounded-full animate-pulse"
+                className="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"
                 style={{ animationDelay: `${i * 0.2}s` }}
               />
             ))}

@@ -64,3 +64,22 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-bg {
+  background: linear-gradient(-45deg, #4f46e5, #475569, #6366f1, #334155);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
