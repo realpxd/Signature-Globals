@@ -1,0 +1,11 @@
+/* Placeholder - to be expanded */
+.section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.sectionContainer {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
